@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Remove EventListners</title>
+    </head>
+    <style>
+
+        body {
+            background-color: #2f2f2f;
+        }
+
+        .image {
+            margin-top: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #hack-img {
+            height: 500px;
+            width: 550px;
+            padding: 24px;
+            border: 1px solid lightgray;
+            border-radius: 50%;
+        }   
+    </style>
+    <body>
+        <div class="image">
+            <img id="hack-img" src="https://t4.ftcdn.net/jpg/05/56/19/27/360_F_556192719_ufc0kALMglVMchMm0qkzc7N1TskdMrEd.jpg" alt="hack-img">
+        </div>
+
+        <script>
+        
+            let imgDiv = document.querySelector(".image");
+            let img = document.querySelector("#hack-img")
+
+            function handleClick(e) {
+                console.log("Image is cliked")
+                img.removeEventListener("click", handleClick)
+            }
+
+            img.addEventListener("click", handleClick)
+
+        </script>
+    </body>
+</html>

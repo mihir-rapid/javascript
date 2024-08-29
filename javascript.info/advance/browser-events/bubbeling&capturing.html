@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>event propogation</title>
+    </head>
+    <style>
+        div {
+            min-width: 100px;
+            min-height: 100px;
+            padding: 32px;
+            border: 1px solid black;
+        }
+    </style>
+    <body>
+        <div id="grandparent">
+            grandparent
+            <div id="parent">
+                parent
+                <div id="child">
+                    child
+                </div>
+            </div>
+        </div>
+        <script>
+
+            let grandparent = document.querySelector("#grandparent");
+            let parent = document.querySelector("#parent");
+            let child = document.querySelector("#child");
+
+            grandparent.addEventListener("click", (e) => {
+                console.log("I am grandparent")
+            }, true)
+
+            parent.addEventListener("click", (e) => {
+                console.log("I am parent")
+                e.stopPropagation()
+            }, false)
+
+            child.addEventListener("click", (e) => {
+                console.log("I am child")
+            }, true)
+
+        </script>
+    </body>
+</html>

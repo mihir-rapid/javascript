@@ -1,0 +1,22 @@
+<html>
+    <style>
+        .display-none {
+            display: none;
+        }
+    </style>
+    <body>
+        <button id="btn">Click to hide</button>
+    </body>
+    <script>
+        // soluton 1
+        /* document.querySelector("#btn").addEventListener("click", (e) => {
+            e.target.remove();
+        }) */
+
+        // solution 2
+        document.querySelector("#btn").addEventListener("click", () => {
+            document.querySelector("#btn").classList.add("display-none")
+        });
+
+    </script>
+</html>

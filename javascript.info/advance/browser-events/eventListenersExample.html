@@ -1,0 +1,181 @@
+<html>
+    <head>
+        <title>Mouse Event Example</title>
+    </head>
+    <style>
+        .cards {
+            display: flex;
+        }
+
+        .card {
+            margin: 25px auto;
+            padding: 24px;
+            width: 300px;
+            border: 1px solid lightgray;
+            border-radius: 12px;
+        }
+
+        .img {
+            width: 100%;
+            border-radius: 10px;
+            height: 200px;
+        }
+
+        .name {
+            font-size: 32px;
+        }
+
+        .price {
+            font-size: 26px;
+        }
+
+        .desc {
+            font-size: 20px;
+        }
+
+        .btns {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn {
+            height: 50px;
+            width:100px;
+            border: 1px solid lightgray;
+            border-radius: 8px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .add {
+            background-color: green;
+        }
+
+        .del {
+            background-color: red;
+        }
+    </style>
+    <body>
+        <div id="cards" class="cards">
+            <div id="indian-food" class="card">
+                <img class="img" src="https://res.cloudinary.com/rainforest-cruises/images/c_fill,g_auto/f_auto,q_auto/w_1120,h_732,c_fill,g_auto/v1661347425/india-food-dal-tadka/india-food-dal-tadka-1120x732.jpg" alt="">
+                <h1 class="name">Name: Indian Food</h1>
+                <h2 class="price">Price: 799</h2>
+                <p class="desc">Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+                <div class="btns">
+                    <button class="btn add">Add</button>
+                    <button class="btn del">Delete</button>
+                </div>
+            </div>
+            <div id="south-indian-food" class="card">
+                <img class="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgSsJV_wAET3J-NuauVcCKvyLdAUFq7KZgiw&s" alt="">
+                <h1 class="name">Name: South Indian Food</h1>
+                <h2 class="price">Price: 499</h2>
+                <p class="desc">Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+                <div class="btns">
+                    <button class="btn add">Add</button>
+                    <button class="btn del">Delete</button>
+                </div>
+            </div>
+            <div id="gujarati-food" class="card">
+                <img class="img" src="https://www.culturalindia.net/iliimages/Gujarati-Food-1.jpg" alt="">
+                <h1 class="name">Name: Gujarati Food</h1>
+                <h2 class="price">Price: 899</h2>
+                <p class="desc">Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+                <div class="btns">
+                    <button class="btn add">Add</button>
+                    <button class="btn del">Delete</button>
+                </div>
+            </div>
+            <div id="italian-food" class="card">
+                <img class="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVkT0oJ65DCJL0qSZudlBfT5t17rffMUlRfA&s" alt="">
+                <h1 class="name">Name: Italian Food</h1>
+                <h2 class="price">Price: 599</h2>
+                <p class="desc">Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+                <div class="btns">
+                    <button class="btn add">Add</button>
+                    <button class="btn del">Delete</button>
+                </div>
+            </div>
+            <div id="punjabi-food" class="card">
+                <img class="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdlZ9-S27grkg-gwqGBRkMUMfE7Mdf7PC4FA&s" alt="">
+                <h1 class="name">Name: Punjabi Food</h1>
+                <h2 class="price">Price: 299</h2>
+                <p class="desc">Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+                <div class="btns">
+                    <button class="btn add">Add</button>
+                    <button class="btn del">Delete</button>
+                </div>
+            </div>
+        </div>
+        <script>
+
+            let cards = document.getElementById("cards")
+            let indianFood = document.getElementById("indian-food")
+            let southIndianFood = document.getElementById("south-indian-food")
+            let gujaratiFood = document.getElementById("gujarati-food")
+            let italianFood = document.getElementById("italian-food")
+            let punjabiFood = document.getElementById("punjabi-food")
+
+            let addBtn = document.querySelectorAll(".add")
+            let delBtn = document.querySelectorAll(".del")                      
+
+            // console.log(cards)
+            // console.log(indianFood)
+            // console.log(southIndianFood)
+            // console.log(gujaratiFood)
+            // console.log(italianFood)
+            // console.log(punjabiFood)
+
+
+            cards.addEventListener("click", (e) => {
+                // console.log("Clicked inside the card")
+            }, false)
+
+            gujaratiFood.addEventListener("click", (e) => {
+                // console.log("Cliked inside the gujarati food")
+                e.preventDefault()  // prevents default behaviour
+                e.stopPropagation() // prevent event propagation
+
+                // console.log(e.target.parentNode);
+            }, false)
+
+            
+            // removing element
+            // deletes single element
+            // delBtn.addEventListener("click", (e) => {
+            //     // console.log(e.target.tagName);
+            //     if (e.target.tagName === "BUTTON") {
+            //         let removeCard = e.target.parentNode.parentNode
+            //         removeCard.parentNode.removeChild(removeCard)
+            //     }
+            // })
+
+            addBtn.forEach((add) => {
+                add.addEventListener("click", (e) => {
+                    if (e.target.tagName === "BUTTON") {
+                        let likeSym = document.createElement("div");
+                        likeSym.innerHTML = "<p>Added to cart</p>"
+                        add.parentNode.parentNode.appendChild(likeSym)
+                    }
+                })
+            })
+
+            delBtn.forEach((del) => {
+                // delete card
+                del.addEventListener("click", (e) => {
+                    if (e.target.tagName = "BUTTON") {
+                        let removeCard = e.target.parentNode.parentNode
+                        removeCard.parentNode.removeChild(removeCard)
+                    }
+                })
+            })
+
+            // => event capturing (true) goes from top to bottom
+
+        </script>
+    </body>
+</html>
+
+<!-- Notes -->
+<!-- // to learn: =>  type, timeStamp, defaultPrevented, target, toElement, srcElement, currentTarget, clientX, clientY, screenX, screenY, altkey, tabkey, shiftkey, keyCode  -->

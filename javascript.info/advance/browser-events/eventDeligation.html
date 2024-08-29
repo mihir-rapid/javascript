@@ -1,0 +1,27 @@
+<!-- Event deligatoin akshay saini -->
+
+<html>
+    <head>
+        <title>Event Deligation</title>
+    </head>
+    <body>
+        <ul id="category">
+            <li id="laptop">Laptops</li>
+            <li id="desktop">Desktops</li>
+            <li id="mobile">Mobiles</li>
+        </ul>
+
+        <script>
+            
+            let category = document.querySelector("#category")
+
+            category.addEventListener("click", (e) => {
+
+                if (e.target.tagName === "LI") {
+                    window.location.href = `/${event.target.id}`
+                }
+            })
+
+        </script>
+    </body>
+</html>

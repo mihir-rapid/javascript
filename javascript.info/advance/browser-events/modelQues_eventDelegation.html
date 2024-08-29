@@ -1,0 +1,60 @@
+<!-- Model Question from Event Delegation Concept -->
+
+<html>
+    <head>
+        <title>Model Question</title>
+        <style>
+            .modelContainer {
+                height: 500px;
+                width: 800px;
+                padding: 32px;
+                display: flex;
+                gap: 24px;
+            }
+
+            .btn {
+                height: 16px;
+                width: 100px;
+                border: 1px solid lightgray;
+                border-radius: 8px;
+                padding: 16px;
+                color: white;
+                background-color: dodgerblue;
+            }
+
+            .model {
+                display: none;
+                height: 500px;
+                width: 500px;
+                border: 2px solid lightgray;
+                border-radius: 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="modelContainer">
+            <div class="btn">Click to open</div>
+            <div class="model"></div>
+        </div>
+        <script>
+
+            let modelContainer = document.querySelector(".modelContainer")
+            let model = document.querySelector(".model")
+            let btn = document.querySelector(".btn")
+
+            btn.addEventListener("click", () => {
+                toggleModel(true)
+            })
+            modelContainer.addEventListener("click", (e) => {
+                if (e.target.className == "modelContainer") {
+                    toggleModel(false)
+                }
+            })
+
+            function toggleModel(toggle) {
+                model.style.display = toggle? "flex" : "none"
+            }
+
+        </script>
+    </body>
+</html>

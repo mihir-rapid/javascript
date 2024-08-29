@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Event Propogation Questions</title>
+        <style>
+            div {
+                min-height: 100px;
+                min-width: 100px;
+                border: 1px solid black;
+                padding: 32px;
+            }
+
+            form {
+                min-height: 100px;
+                min-width: 100px;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <form action="">FORM
+                <button>BUTTOn</button>
+            </form>
+        </div>
+        <script>
+
+            let div = document.querySelector("div")
+            let form = document.querySelector("form")
+            let button = document.querySelector("button")
+
+            div.addEventListener("click", main)
+            form.addEventListener("click", main)
+            button.addEventListener("click", main)
+
+            function main(event) {
+                alert("target = " + event.target.tagName + "  current target = " + event.currentTarget.tagName + "  this target = " + this.tagName);
+            }
+
+        </script>
+    </body>
+</html>

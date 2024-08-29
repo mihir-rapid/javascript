@@ -1,0 +1,32 @@
+<!-- capitalize name at run-time -->
+<html>
+    <head>
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="form">
+            <input type="text" id="name" placeholder="name" data-uppercase> <br><br>
+            <input type="text" id="surname" placeholder="surname" data-uppercase> <br><br>
+            <input type="text" id="email" placeholder="email" data-uppercase>
+        </div>
+
+        <script>
+
+            document.querySelector("#form").addEventListener("keyup", (e) => {
+
+                if (e.target.dataset.uppercase != undefined) {
+
+                    if (e.target.id === "name" || e.target.id === "surname") {
+                        e.target.value = e.target.value.toUpperCase();
+                    }
+
+                    if (e.target.id == "email") {
+                        e.target.value = e.target.value.toLowerCase();
+                    }
+                }
+
+            })
+
+        </script>
+    </body>
+</html>

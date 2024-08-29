@@ -1,0 +1,50 @@
+<!-- getElementById -->
+
+<!-- querySelectorAll -->
+
+<html>
+    <body>
+        <ul>
+            <li>krish</li>
+            <li>mihir</li>
+        </ul>
+        <ul>
+            <li>MERN Stack</li>
+            <li>DevOps</li>
+        </ul>
+    </body>
+    <script>
+        let elements = document.querySelectorAll("ul > li:last-child")
+        for (let elem of elements) {
+            console.log(elem.innerHTML)
+        }
+    </script>
+</html>
+
+
+
+
+<!-- closest -->
+<!-- The method elem.closest(css) looks for the nearest ancestor that matches the CSS-selector. The elem itself is also included in the searcsh. -->
+
+<html>
+    <body>
+        <h1>Contents</h1>
+        <div class="contents">
+            <ul class="book">
+                <li class="chapter">chapter 1</li>
+                <li class="chapter">chapter 2</li>
+            </ul>
+        </div>
+        <script>
+            let chapter = document.querySelector(".chapter")
+            console.log(chapter.closest(".book"))
+            console.log(chapter.closest(".contents"))
+            console.log(chapter.closest("h1"))
+        </script>
+    </body>
+</html>
+
+
+
+<!-- getElementByTagName -->
